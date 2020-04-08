@@ -203,6 +203,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-music-remote-center=y
           CONFIG_PACKAGE_luci-app-cifs-mount=y
           CONFIG_PACKAGE_luci-app-ttyd=y
+          CONFIG_PACKAGE_luci-app-amule=n
           EOF
 
           # LuCI主题:
