@@ -67,7 +67,7 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/vernesong/OpenClash.git
-          https://github.com/fw876/helloworld.git
+          git clone https://github.com/fw876/helloworld.git
         # git clone https://github.com/frainzy1477/luci-app-clash.git
       
       - name: 更改路由默认IP地址
