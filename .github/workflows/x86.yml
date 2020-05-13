@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: 5_9_X86_64_OPENWRT
+name: 5_13_X86_64_OPENWRT
 
 on:
   push:
@@ -67,7 +67,7 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/vernesong/OpenClash.git
-          git clone https://github.com/fw876/helloworld.git
+        # git clone https://github.com/fw876/helloworld.git
         # git clone https://github.com/frainzy1477/luci-app-clash.git
       
       - name: 更改路由默认IP地址
