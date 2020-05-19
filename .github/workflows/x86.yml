@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: 5_13_X86_64_OPENWRT
+name: 5_20_X86_64_OPENWRT
 
 on:
   push:
