@@ -66,7 +66,8 @@ jobs:
           cd package
           cd lean  
           rm -rf luci-theme-argon  
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git 
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+          cd ../ 
           mkdir openwrt-packages
           cd openwrt-packages
           git clone -b master https://github.com/vernesong/OpenClash.git
@@ -214,10 +215,10 @@ jobs:
           EOF
 
           # LuCI主题:
-          # cat >> .config <<EOF
+          cat >> .config <<EOF
           CONFIG_PACKAGE_luci-theme-argon=y
           # CONFIG_PACKAGE_luci-theme-netgear=y
-          # EOF
+          EOF
 
           # 常用软件包:
           cat >> .config <<EOF
