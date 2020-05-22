@@ -64,10 +64,15 @@ jobs:
         working-directory: ./openwrt
         run: |
           cd package
+          cd lean  
+          rm -rf luci-theme-argon  
+          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git 
           mkdir openwrt-packages
           cd openwrt-packages
           git clone -b master https://github.com/vernesong/OpenClash.git
-          git clone https://github.com/fw876/helloworld.git
+          git clone https://github.com/jerrykuku/lua-maxminddb.git
+          git clone https://github.com/jerrykuku/luci-app-vssr.git
+        # git clone https://github.com/fw876/helloworld.git
         # git clone https://github.com/frainzy1477/luci-app-clash.git
       
       - name: 更改路由默认IP地址
@@ -181,6 +186,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-vssr=y
           CONFIG_PACKAGE_luci-app-airplay2=y
           CONFIG_PACKAGE_luci-app-qbittorrent=n
           CONFIG_PACKAGE_luci-app-adbyby-plus=n
@@ -204,11 +210,12 @@ jobs:
           CONFIG_PACKAGE_luci-app-cifs-mount=n
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-amule=n
+          CONFIG_PACKAGE_lua-maxminddb=y
           EOF
 
           # LuCI主题:
           # cat >> .config <<EOF
-          # CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-theme-argon=y
           # CONFIG_PACKAGE_luci-theme-netgear=y
           # EOF
 
