@@ -64,13 +64,10 @@ jobs:
         working-directory: ./openwrt
         run: |
           cd package
-          cd lean  
-          rm -rf luci-theme-argon  
-          git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-          cd ../ 
           mkdir openwrt-packages
           cd openwrt-packages
           git clone -b master https://github.com/vernesong/OpenClash.git
+          git clone https://github.com/happyzhang1995/luci-app-adguardhome.git
         # git clone https://github.com/fw876/helloworld.git
         # git clone https://github.com/frainzy1477/luci-app-clash.git
       
@@ -209,14 +206,13 @@ jobs:
           CONFIG_PACKAGE_luci-app-cifs-mount=n
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-amule=n
-          CONFIG_PACKAGE_lua-maxminddb=y
           EOF
 
           # LuCI主题:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-theme-argon=n
+          # cat >> .config <<EOF
+          # CONFIG_PACKAGE_luci-theme-argon=n
           # CONFIG_PACKAGE_luci-theme-netgear=y
-          EOF
+          # EOF
 
           # 常用软件包:
           cat >> .config <<EOF
@@ -231,7 +227,7 @@ jobs:
           
           # OpenClash:
           cat >> .config <<EOF
-          # CONFIG_PACKAGE_luci-app-adguardhome=n
+          CONFIG_PACKAGE_luci-app-adguardhome=y
           CONFIG_PACKAGE_luci-app-openclash=y
           EOF
 
