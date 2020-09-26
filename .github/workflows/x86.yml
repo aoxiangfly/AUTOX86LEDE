@@ -67,7 +67,6 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
-          git clone https://github.com/fw876/helloworld.git
         # git clone -b master https://github.com/vernesong/OpenClash.git
         # git clone https://github.com/frainzy1477/luci-app-clash.git
       
@@ -142,9 +141,9 @@ jobs:
           EOF
 
           # 编译UEFI固件:
-          # cat >> .config <<EOF
-          # CONFIG_EFI_IMAGES=y
-          # EOF
+          cat >> .config <<EOF
+          CONFIG_EFI_IMAGES=n
+          EOF
 
           # IPv6支持:
           # cat >> .config <<EOF
@@ -233,8 +232,8 @@ jobs:
           
           # OpenClash:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-adguardhome=y
-          CONFIG_PACKAGE_luci-app-openclash=y
+          CONFIG_PACKAGE_luci-app-adguardhome=n
+          CONFIG_PACKAGE_luci-app-openclash=n
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
