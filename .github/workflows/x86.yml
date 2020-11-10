@@ -69,7 +69,7 @@ jobs:
         working-directory: ./openwrt
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
-        
+          echo "src-git infinityfreedom https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git" >> feeds.conf.default        
       - name: 更改路由默认IP地址
         working-directory: ./openwrt
         run: |
@@ -214,10 +214,9 @@ jobs:
           EOF
 
           # LuCI主题:
-          # cat >> .config <<EOF
-          # CONFIG_PACKAGE_luci-theme-argon=n
-          # CONFIG_PACKAGE_luci-theme-netgear=y
-          # EOF
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-theme-infinityfreedom=y
+          EOF
 
           # 常用软件包:
           cat >> .config <<EOF
