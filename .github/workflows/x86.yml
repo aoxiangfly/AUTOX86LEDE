@@ -187,6 +187,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=n
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=n
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=n
+          CONFIG_PACKAGE_luci-app-docker=y
+          CONFIG_PACKAGE_luci-lib-docker=y
           CONFIG_PACKAGE_luci-app-vssr=n
           CONFIG_PACKAGE_luci-app-airplay2=y
           CONFIG_PACKAGE_luci-app-qbittorrent=n
@@ -233,6 +235,16 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adguardhome=n
           CONFIG_PACKAGE_luci-app-openclash=n
+          CONFIG_PACKAGE_docker-ce=y
+          CONFIG_DOCKER_KERNEL_OPTIONS=y
+          CONFIG_DOCKER_SECCOMP=y
+          CONFIG_DOCKER_RES_SHAPE=y
+          CONFIG_DOCKER_NET_OVERLAY=y
+          CONFIG_DOCKER_NET_ENCRYPT=y
+          CONFIG_DOCKER_NET_MACVLAN=y
+          CONFIG_DOCKER_NET_TFTP=y
+          CONFIG_DOCKER_STO_EXT4=y
+          CONFIG_DOCKER_STO_BTRFS=y
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
