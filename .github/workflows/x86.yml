@@ -180,12 +180,12 @@ jobs:
           CONFIG_PACKAGE_luci-app-udpxy=n
           CONFIG_PACKAGE_luci-app-firewall=y
           CONFIG_PACKAGE_luci-app-accesscontrol=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=n
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=n
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-lib-docker=y
           CONFIG_PACKAGE_luci-app-vssr=n
@@ -216,7 +216,7 @@ jobs:
 
           # LuCI主题:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-theme-infinityfreedom=y
+          CONFIG_PACKAGE_luci-theme-infinityfreedom=n
           EOF
 
           # 常用软件包:
