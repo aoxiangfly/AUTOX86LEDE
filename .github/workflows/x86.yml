@@ -233,7 +233,7 @@ jobs:
           
           # OpenClash:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-adguardhome=n
+          CONFIG_PACKAGE_luci-app-adguardhome=y
           CONFIG_PACKAGE_luci-app-openclash=n
           CONFIG_PACKAGE_docker-ce=y
           CONFIG_DOCKER_KERNEL_OPTIONS=y
