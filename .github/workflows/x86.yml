@@ -68,7 +68,6 @@ jobs:
         working-directory: ./openwrt
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
-          echo "src-git infinityfreedom https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git" >> feeds.conf.default        
       - name: 更改路由默认IP地址
         working-directory: ./openwrt
         run: |
@@ -171,26 +170,23 @@ jobs:
 
           # 常用LuCI插件选择:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_ddns-scripts=n
+          CONFIG_PACKAGE_ddns-scripts_aliyun=n
+          CONFIG_PACKAGE_ddns-scripts_dnspod=n
           CONFIG_PACKAGE_luci-app-filetransfer=y
           CONFIG_PACKAGE_luci-app-arpbind=y
           CONFIG_PACKAGE_luci-app-ddns=n
           CONFIG_PACKAGE_luci-app-flowoffload=y
-          CONFIG_PACKAGE_luci-app-sfe=n
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-wol=n
           CONFIG_PACKAGE_luci-app-udpxy=n
           CONFIG_PACKAGE_luci-app-firewall=y
           CONFIG_PACKAGE_luci-app-accesscontrol=n
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-lib-docker=y
           CONFIG_PACKAGE_luci-app-vssr=n
-          CONFIG_PACKAGE_luci-app-airplay2=y
+          CONFIG_PACKAGE_luci-app-airplay2=n
           CONFIG_PACKAGE_luci-app-qbittorrent=n
           CONFIG_PACKAGE_luci-app-adbyby-plus=n
           CONFIG_PACKAGE_luci-app-unblockmusic=n
