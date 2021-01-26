@@ -182,6 +182,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-udpxy=n
           CONFIG_PACKAGE_luci-app-firewall=y
           CONFIG_PACKAGE_luci-app-accesscontrol=n
+          CONFIG_PACKAGE_luci-app-jd-dailybonus=n
+          CONFIG_PACKAGE_luci-app-uugamebooster=n
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
           CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-lib-docker=y
