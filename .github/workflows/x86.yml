@@ -206,6 +206,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-samba=n
           CONFIG_PACKAGE_luci-app-nlbwmon=n
           CONFIG_PACKAGE_luci-app-sqm=n
+          CONFIG_PACKAGE_luci-app-sfe=n
           CONFIG_PACKAGE_luci-app-ramfree=n
           CONFIG_PACKAGE_luci-app-music-remote-center=n
           CONFIG_PACKAGE_luci-app-cifs-mount=n
@@ -233,16 +234,16 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adguardhome=y
           CONFIG_PACKAGE_luci-app-openclash=n
-          CONFIG_PACKAGE_docker-ce=y
-          CONFIG_DOCKER_KERNEL_OPTIONS=y
-          CONFIG_DOCKER_SECCOMP=y
-          CONFIG_DOCKER_RES_SHAPE=y
-          CONFIG_DOCKER_NET_OVERLAY=y
-          CONFIG_DOCKER_NET_ENCRYPT=y
-          CONFIG_DOCKER_NET_MACVLAN=y
-          CONFIG_DOCKER_NET_TFTP=y
-          CONFIG_DOCKER_STO_EXT4=y
-          CONFIG_DOCKER_STO_BTRFS=y
+          CONFIG_PACKAGE_docker-ce=n
+          CONFIG_DOCKER_KERNEL_OPTIONS=n
+          CONFIG_DOCKER_SECCOMP=n
+          CONFIG_DOCKER_RES_SHAPE=n
+          CONFIG_DOCKER_NET_OVERLAY=n
+          CONFIG_DOCKER_NET_ENCRYPT=n
+          CONFIG_DOCKER_NET_MACVLAN=n
+          CONFIG_DOCKER_NET_TFTP=n
+          CONFIG_DOCKER_STO_EXT4=n
+          CONFIG_DOCKER_STO_BTRFS=n
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
