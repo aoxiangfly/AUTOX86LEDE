@@ -54,9 +54,8 @@ jobs:
         run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
       
       - name: Clone openclash
-        working-directory: ./openwrt
         run: |
-          cd package
+          cd openwrt/package
           mkdir openwrt-packages
           cd openwrt-packages
         # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
@@ -64,26 +63,23 @@ jobs:
         # git clone https://github.com/frainzy1477/luci-app-clash.git
       
       - name: 修改feeds
-        working-directory: ./openwrt
         run: |
-          echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
+          cd openwrt && echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
       - name: 更改路由默认IP地址
-        working-directory: ./openwrt
         run: |
-          cd package/base-files/files/bin/
+          cd cd openwrt/package/base-files/files/bin/
           sed -i 's/192.168.1.1/192.168.6.253/g' config_generate
 
       - name: 更新feeds
-        working-directory: ./openwrt
         run: |
+          cd openwrt
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           ./scripts/feeds install -a
 
       - name: 定制固件
-        working-directory: ./openwrt
         run: |
-          mv ../config.diff .config
+          cd openwrt && mv ../config.diff .config
           make defconfig
 
       - name: 开始make download
@@ -105,7 +101,6 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined.img*" | xargs -i mv -f {} ./artifact/
-      #   find ./bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
 
       - name: 上传artifact
         uses: actions/upload-artifact@master
