@@ -83,7 +83,7 @@ jobs:
       - name: 定制固件
         working-directory: ./openwrt
         run: |
-          cp ../.config .config
+          mv ../config.bak .config
           make defconfig
 
       - name: 开始make download
